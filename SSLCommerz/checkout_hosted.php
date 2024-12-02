@@ -16,7 +16,7 @@ $post_data = array();
 
 $post_data['total_amount'] = $_POST['amount'];
 $post_data['currency'] = "BDT";
-$post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
+$post_data['tran_id'] = $_POST['tran_id'];
 
 # CUSTOMER INFORMATION
 $post_data['cus_name'] = isset($_POST['customer_name']) ? $_POST['customer_name'] : "John Doe";

@@ -73,7 +73,7 @@
 	
 	
 <body>
-	<!-- <div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-2 col-sm-4 col-12">
 				<img src="image/bus_logo.jpg" alt="logo" class="logo" >
@@ -118,10 +118,10 @@
 				</div>
 			</div>
 	</div>
-	</div> -->
+	</div>
 
 	<marquee style="height:30px;width:100%; background-color:#000; line-height:30px;" behavier="slide" direction="left" loop="1000"><p class= "style" >Dhaka - Chittagong,  Dhaka - Khulna,  Dhaka - Cox Bazar,  Dhaka - Rajsahi,  Dhaka - Rangpur,  Dhaka - Nilfamari,  Dhaka - Borisal,  Dhaka - Jhalokathi,  Dhaka - Feni,  Dhaka - Netrokona,  Dhaka - Sylhet,  Dhaka - Nator</p></marquee>
-	<!-- <div class="menu">
+	<div class="menu">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-12">
@@ -151,4 +151,4 @@
 				</div>				
 			</div>
 		</div>	
-	</div> -->
+	</div>

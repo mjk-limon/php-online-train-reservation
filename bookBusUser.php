@@ -64,6 +64,7 @@ if (mysqli_num_rows($result) > 0) {
 	<center>
 		<h4 style="color: green;">
 			<form action="./SSLCommerz/checkout_hosted.php" method="POST" id="checkoutForm">
+				<input type="hidden" name="tran_id" value="<?php echo $pnr ?>" required />
 				<input type="hidden" name="customer_name" value="<?php echo $fname . ' ' . $lname ?>" required />
 				<input type="hidden" name="customer_mobile" value="<?php echo $phone ?>" required />
 				<input type="hidden" name="customer_email" value="<?php echo $email ?>" required />

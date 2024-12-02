@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "admin";
+$password = "adminlimon";
 $db = "sas";
 
 // Create connection
@@ -12,5 +12,4 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
-?>
+return $con;
