@@ -18,16 +18,12 @@ include 'header.php';
 					<option value = "2">User</option>
 				</select>
 			</div>
-			<center>
+			
 			<div class="login-btn">
 				<input type="submit" value="Login" id="submit">
 			</div>
-			</center>
-			<center>
-			<div class="reg-btn"><a href="register.php" style="font-family:Adobe Gothic Std B; font-size:18px"> Register now </a></div>
-			</center>
+			<div class="reg-btn"><a href="register.php"> Register now </a></div>
 		</form>
-	
 	</div>
 <center><?php include 'footer.php'; ?></center>
 </body>

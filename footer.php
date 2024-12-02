@@ -5,5 +5,5 @@
 			<li><a href='contact.php'>Contact us</a></i>				
 		</ul>
 	</div>
-	<h3>&copy 2019 Developed By Resat</h3>
+	<h3>&copy 2024</h3>
 </div>

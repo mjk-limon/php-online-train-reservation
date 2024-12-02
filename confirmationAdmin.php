@@ -16,14 +16,8 @@
 	<center style="background: #fff; padding: 1.5em" id="main">
 		<table class="adnmin-tabil">
 			<tr>
-			   <th>
-			       <label>Train Name</label>
-			   </th>
 				<th>
-					<label>Train Number</label>
-				</th>
-				<th>
-				<label>Train Type</label>
+					<label>Bus Number</label>
 				</th>
 				<th>
 					<label>PNR Number</label>
@@ -50,7 +44,7 @@
 					<label>Seats</label>
 				</th>
 				<th>
-					<label>Action</label>
+					<label>Accept</label>
 				</th>
 			</tr>
 
@@ -58,19 +52,16 @@
 		if(isset($_GET['submit'])){
 			if($_GET['srch']!=null){
 				$pnr = $_GET['srch'];
-				$sql="SELECT * FROM `reset`.`books` where `pnr` = '$pnr' ORDER BY `id`";
-			} else $sql="SELECT * FROM `reset`.`books` ORDER BY `id`";
-		} else $sql="SELECT * FROM `reset`.`books` ORDER BY `id` DESC";        
+				$sql="SELECT * FROM `sas`.`books` where `pnr` = '$pnr' ORDER BY `id`";
+			} else $sql="SELECT * FROM `sas`.`books` ORDER BY `id`";
+		} else $sql="SELECT * FROM `sas`.`books` ORDER BY `id` DESC";        
 		
 		$result=  mysqli_query($conn, $sql);
 		if(mysqli_num_rows($result)>0){
 			while ($row=mysqli_fetch_assoc($result)){
-				$cInfo = $conn->query("SELECT * FROM schedule WHERE scNumber = '{$row['scNumber']}'")->fetch_assoc();
 	?>
 		<tr> 
-		    <td><?php echo $cInfo['scName']; ?></td>
 			<td><?php echo $row['scNumber']; ?></td>
-			<td><?php echo ($cInfo['scType'] == 1) ? 'A/C' : 'Non A/C';  ?></td>
 			<td><?php echo $row['pnr']; ?></td>
 			<td><?php echo $row['fname']; ?></td>
 			<td>
@@ -89,8 +80,8 @@
 				<?php echo $row['amount']; ?>
 			</td>
 			<td>
-				<?php echo $row['seatNames']; ?>(UP)<br>
-				<?php if(!empty($row['seatNamesDown'])) echo $row['seatNamesDown'].'(Down)'; ?> 
+				<?php echo $row['seatNames']; ?> (U)<br>
+				<?php if(!empty($row['seatNamesDown'])) echo $row['seatNames'].' (D)'; ?> 
 			</td>
 			<td>
 			<?php if($row['accept'] == 0){ ?>
@@ -118,5 +109,4 @@
 			win.print();
 		}
 </script>
-<br><br><br><br>
 <?php include 'footer.php';?>

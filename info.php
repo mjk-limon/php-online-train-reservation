@@ -11,7 +11,7 @@ if (isset($_GET['searchTwo'])) {
 	$return_time;
 	$flightNumber;
 	$totalSeat;
-	$sql="SELECT * FROM `reset`.`schedule` WHERE `depDate` = '$depart_date' AND `retDate` = '$return_date' AND `fromLoc` = '$DepLoc' AND `toLoc` = '$RechLoc' ORDER BY `id`";
+	$sql="SELECT * FROM `sas`.`schedule` WHERE `depDate` = '$depart_date' AND `retDate` = '$return_date' AND `fromLoc` = '$DepLoc' AND `toLoc` = '$RechLoc' ORDER BY `id`";
                     $result=  mysqli_query($conn, $sql);
                     if(mysqli_num_rows($result)){
                         while ($row=mysqli_fetch_assoc($result)){
@@ -22,7 +22,7 @@ if (isset($_GET['searchTwo'])) {
                         	$totalSeat = $row['seat'];
                         }
                     }else{
-                    	echo "<center><h1>Sorry To Inform You That<br> We Do Not Have Traines/trains That <br>Meet Your Requirements</h1></center>";
+                    	echo "<center><h1>Sorry To Inform You That<br> We Do Not Have buses/trains That <br>Meet Your Requirements</h1></center>";
                     	die();
                     }
                     mysqli_free_result($result);
@@ -30,7 +30,7 @@ if (isset($_GET['searchTwo'])) {
 	$DepLoc = $_GET['DepLoc'];
 	$RechLoc = $_GET['RechLoc'];
 	$depart_date = $_GET['depart_date'];
-	$sql="SELECT * FROM `reset`.`schedule` WHERE (`depDate` = '$depart_date' OR `retDate` = '$depart_date') AND (`fromLoc` = '$DepLoc' OR `toLoc` = '$DepLoc') AND (`toLoc` = '$RechLoc' OR `fromLoc` = '$RechLoc') ORDER BY `id`";
+	$sql="SELECT * FROM `sas`.`schedule` WHERE (`depDate` = '$depart_date' OR `retDate` = '$depart_date') AND (`fromLoc` = '$DepLoc' OR `toLoc` = '$DepLoc') AND (`toLoc` = '$RechLoc' OR `fromLoc` = '$RechLoc') ORDER BY `id`";
                     $result=  mysqli_query($conn, $sql);
                     if(mysqli_num_rows($result)){
                         while ($row=mysqli_fetch_assoc($result)){
@@ -40,7 +40,7 @@ if (isset($_GET['searchTwo'])) {
                         	$totalSeat = $row['seat'];
                         }
                     }else{
-                    	echo "<center><h1>Sorry To Inform You That<br> We Do Not Have Traines/trains That <br>Meet Your Requirements</h1></center>";
+                    	echo "<center><h1>Sorry To Inform You That<br> We Do Not Have buses/trains That <br>Meet Your Requirements</h1></center>";
                     }
                     mysqli_free_result($result);
 	
@@ -68,9 +68,9 @@ input { width: 200px; border: 1px solid #000; padding: 5px; }
 <div style="margin-top: 25px;">
 	<?php
 if ($avail == 1 || $avail == 2) {
-	echo "<h1>We Have Traines/trains For You On This Date Please Login</h1>";
+	echo "<h1>We Have buses/trains For You On This Date Please Login</h1>";
 }else{
-    echo "<h1>We Have No Traines/trains Available For You On This Date</h1>";
+    echo "<h1>We Have No buses/trains Available For You On This Date</h1>";
 }
 ?>
 

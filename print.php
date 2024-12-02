@@ -3,7 +3,7 @@ session_start();
 if (isset($_GET['pnr'])) {
 	include 'connection.php';
 	$pnr = $_GET['pnr'];
-	$sql="SELECT * FROM `reset`.`books` WHERE `pnr` = '$pnr' ORDER BY `id`";    
+	$sql="SELECT * FROM `sas`.`books` WHERE `pnr` = '$pnr' ORDER BY `id`";    
     $result=  mysqli_query($conn, $sql);
     if(mysqli_num_rows($result)>0){
     	$row=mysqli_fetch_assoc($result);
@@ -75,8 +75,7 @@ $ob1 = new BasicDB;
 				</tr>
 				<tr>
 					<td>
-						<p>Seat (Up) : <?php echo $row['seatNames']; ?> <br>
-			               Seat (Down): <?php if(!empty($row['seatNamesDown'])) echo $row['seatNamesDown']; ?></p>
+						<p>Seat : <?php echo $row['seatNames'] ?></p>
 					</td>
 				</tr>
 				<tr>
@@ -86,7 +85,7 @@ $ob1 = new BasicDB;
 				</tr>
 				<?php 
 					$ll = $row['dest'];
-					$sql="SELECT * FROM `reset`.`retlocation` WHERE `id` = '$ll' ";    
+					$sql="SELECT * FROM `sas`.`retlocation` WHERE `id` = '$ll' ";    
 				    $result1=  mysqli_query($conn, $sql);
 				    if(mysqli_num_rows($result1)>0){
 				    	$row1=mysqli_fetch_assoc($result1);
@@ -99,7 +98,7 @@ $ob1 = new BasicDB;
 				</tr>
 				<?php 
 					$ll2 = $row['depart'];
-					$sql="SELECT * FROM `reset`.`location` WHERE `id` = '$ll2' ";    
+					$sql="SELECT * FROM `sas`.`location` WHERE `id` = '$ll2' ";    
 				    $result2=  mysqli_query($conn, $sql);
 				    if(mysqli_num_rows($result2)>0){
 				    	$row2=mysqli_fetch_assoc($result2);
@@ -153,10 +152,9 @@ $ob1 = new BasicDB;
 				div+=document.getElementById('main').innerHTML;
 				div+="</body></html>"
 				var win=window.open("", "", "width=960,height=500");
-				win.document.write("<center><h1>Online Train Reservation</h1></center><br><br>");
-				win.document.write("<center><h2> Passenger Ticket</h2></center><br><br>");
+				win.document.write("<center><h1>Customer Ticket</h1></center><br><br>");
 				win.document.write(div);
-				win.document.write("<br><br><center><p>&copy All Rights Reserved By Ik Sajib</p></center>");
+				win.document.write("<br><br><center><p>&copy All Rights Reserved ByIk Sajib</p></center>");
 				win.print();
 			}
 	</script>

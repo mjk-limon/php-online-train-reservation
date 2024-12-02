@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "adminlimon";
-$db = "reset";
+$password = "admin";
+$db = "sas";
 
 // Create connection
 $con = mysqli_connect($servername, $username, $password,$db);

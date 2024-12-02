@@ -12,7 +12,7 @@ if(!isset($_SESSION['adminname'])){
 
 <html>
 	<head>
-		<title> Online Train Reservation</title>
+		<title> Online Bus Reservation</title>
 		<link rel="stylesheet" type ="text/css" href="./css/home.css">		
 		<link href="./css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="./css/jquery-ui.css">
@@ -20,7 +20,6 @@ if(!isset($_SESSION['adminname'])){
 	<link rel="stylesheet" type="text/css" href="././css/headercss.css">
 	<link rel="stylesheet" type="text/css" href="./scss/letter.css">
 	<link rel="stylesheet" type="text/css" href="././css/headercss.css">
-	 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
 		
 		<script src="./js/jquery-3.4.1.min.js"></script>
 		<script src="./js/bootstrap.js"></script>		
@@ -83,21 +82,17 @@ if(!isset($_SESSION['adminname'])){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 col-sm-4 col-12">
-				<img src="./image/logo.png" alt="logo" class="logo" >
+				<img src="./image/bus_logo.jpg" alt="logo" class="logo" >
 			</div>
 			<div class="col-md-4 col-sm-4 col-12">
-				<h1 class="font"> Online Train Reservation </h1>
+				<h1 class="font"> Online Bus Reservation </h1>
 			</div>
-			<div class="col-md-6 col-sm-4 col-12">			
-				<div class="top-links ">	
-					<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="https://accounts.google.com"><i class="fa fa-google-plus"></i></a></li>
-					<li><a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-					<li><a href="https://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-					<li><a href="https://www.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
-				</div>
-					
+			<div class="col-md-6 col-sm-4 col-12">
+				<div class="search-container">
+					<form action="./action_page.php">
+						<input type="text" placeholder="Search.." name="search" class="ser">
+						<button type="submit"  class="ser-bt">Search</button>
+					</form>
 				</div>
 			</div>
 			
@@ -112,14 +107,14 @@ if(!isset($_SESSION['adminname'])){
 					<ul>  
 						<li><a href="./adminpage.php">Home</a></li>
 						<li class="dropdown12">
-							<a href="">Train</a>
+							<a href="">Buses</a>
 							<ul class="submenu12">
-								<li><a href="./scheduletrain.php">Add Route</a></li>
+								<li><a href="./scheduleBus.php">Schedule Buses</a></li>
 								<li><a href="./showschedule.php">Show Schedule</a></li>
 							</ul>     
 						</li>
 						
-						<li><a href="./userList.php">User</a></li>
+						<li><a href="./userList.php">Users</a></li>
 						<li>
 							<a href="./confirmationAdmin.php">Confirmation</a>    
 						</li>

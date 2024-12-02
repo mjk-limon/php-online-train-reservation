@@ -1,7 +1,7 @@
 <?php
-$database = 'reset';
+$database = 'sas';
 $user = 'root';
-$pass = 'adminlimon';
+$pass = 'admin';
 $hostname = 'localhost';
 
 $conn = mysqli_connect($hostname, $user, $pass, $database);

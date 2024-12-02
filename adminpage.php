@@ -8,7 +8,7 @@ include 'header/headerAdmin.php';
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-12">
 					<div class="adnmin-firde-tabil">
-						<h3 class="wlcmAdmin"style="color:Green">Hello <?php date_default_timezone_set('Asia/Dhaka'); echo $_SESSION['adminname'];?> Welcome to your panel</h3><br>
+						<h3 class="wlcmAdmin">Hello <?php date_default_timezone_set('Asia/Dhaka'); echo $_SESSION['adminname'];?> Welcome to your panel</h3><br>
 						<p class="wlcmdate datemar"> <span class="to-time"><?php echo date("l jS \of F Y")?></span></p><br>
 						<p class="wlcmtime datemar"><span class="to-time">Server Time <?php echo date("h:ia"); ?></span></p><br>
 					</div>
@@ -37,7 +37,6 @@ include 'header/headerAdmin.php';
 				</div>
 			</div>
 		</div>
-		<br>
 <center><?php
 include 'footer.php';
 ?></center>

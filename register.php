@@ -30,11 +30,10 @@ include"header.php";
 				<input id="confirm_password" name="confirm_password" type="password" required="">
 				<span class="f1">Your passwords do not match</span>
 			</div>
-             <center>
+
 			<div class="login-btn">
 				<input type="submit" name="submit" value="Create My Account" id="submit" style="margin-top: 20px;width:50%;">
 			</div>
-			</center>
 		</form>
 		<script src="js/jquery.min.js"></script>
 	  <script  src="js/index.js"></script>

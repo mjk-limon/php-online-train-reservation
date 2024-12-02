@@ -58,26 +58,19 @@
 						<label>Email</label>
 					</th>
 					<th>
-						<label>Balance</label>
-					</th>
-					<th>
 						<label>Password</label>
-                    </th>
-					
+					</th>
 					<th>
 						<label>Action</label>
 					</th>
 				</tr>
-				<?php    
-				   
-				    
-						$sql="SELECT * FROM `reset`.`customer`ORDER BY `cus_id` ";
-	                   
-			          $result=  mysqli_query($conn, $sql);
+				<?php
+						$sql="SELECT * FROM `sas`.`customer` ORDER BY `cus_id`";
+						$result=  mysqli_query($conn, $sql);
 						if(mysqli_num_rows($result)){
 								while ($row=mysqli_fetch_assoc($result)){
 				?>
-				    <tr>
+					<tr>
 						<td>
 									<?php echo $row['cus_id'];?>
 							</td>
@@ -90,28 +83,9 @@
 							<td>
 									<?php echo $row['email'];?>
 							</td>
-							<?php
-							$aa = $row['cus_id'];
-							$sql1="SELECT * FROM balance where userid = $aa  ";
-	                   
-			          $result1=  mysqli_query($conn, $sql1);
-						if(mysqli_num_rows($result1)){
-								while ($row1=mysqli_fetch_assoc($result1)){
-									
-									$b= $row1['balance'];
-									
-								}
-						}
-									
-									?>
-									
-									<td>
-									<?php echo $b;?>
-							</td>
 							<td>
 									<?php echo $row['cus_pass'];?>
 							</td>
-							
 							<td class="hideforpdf">
 									<a href="?update=<?php echo $row['cus_id']?>">Edit</a>/
 									<a href="?delete-user=1&cus_id=<?php echo $row['cus_id']?>">Delete</a>
@@ -120,7 +94,6 @@
 					</tr>
 					<?php                                      
 									}
-						          
 							}
 					?>
 			</table>
@@ -175,7 +148,10 @@
 			var win=window.open("", "", "width=960,height=500");
 			win.document.write("<center><h1>Confirmation Panel</h1></center><br><br>");
 			win.document.write(div);
-			win.document.write("<br><br><center><p> All Rights Reserved By Ik Sajib</p><p>Developed By Ik Sajib</p></center>");
+			win.document.write("<br><br><center><p>&copy All Rights Reserved By Shamim</p><p>Developed By Shamim</p></center>");
 			win.print();
 		}
 </script>
+</div>
+</body>
+</html>

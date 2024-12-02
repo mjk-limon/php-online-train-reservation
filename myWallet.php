@@ -21,11 +21,12 @@
 	<div class="row">
 		<div class="col-md-3 col-sm-3 col-12">
 			<div class="sidebar">
-			  <h3>Dashboard</h3>
+			  <h3>Sidebar</h3>
 			  <ul>
-				
+				<li> <a href="">Dashboard </a> </li>
 				<li> <a href='myWallet.php'>My Wallet </a></li>
-				
+				<li><a href=""> profile </a></li>
+				<li><a href=""> logout </a></li>
 			  </ul>
 		
 			</div>
@@ -33,11 +34,10 @@
 		
 		<div class="col-md-9  col-sm-9 col-12">
 			<div class="row">
-			<div class="col-md-1"></div>
-				<div class="col-md-9">
-					<div class="adnmin-firde-tabil" >
-						<h2 class="text-center">Your available balance is: <span class="text-success">BDT<?= $balance ?></span></h2>
-						<div class="well text-left" Style="background-color:#b2f4ee">
+				<div class="col-md-12">
+					<div class="adnmin-firde-tabil">
+						<h2 class="text-center">Your available balance is: <span class="text-success">BDT80</span></h2>
+						<div class="well text-left">
 							<h4>Update Balance</h4>
 							<form id="" action="" method="post">
 								<input type="hidden" name="update-balance" />
@@ -50,14 +50,12 @@
 									<input type="text" name="accnumber" class="form-control" required />
 								</div>
 								<div class="form-group">
-									<label>Bkash Transaction id</label>
+									<label>Bkash trxn id</label>
 									<input type="text" name="trxnid" class="form-control" required />
 								</div>
-								<center>
-								<div class="form-group" >
-									<input type="submit" value="Submit" class="btn btn-success" Style="background-color:#1570b0" />
+								<div class="form-group">
+									<input type="submit" value="Submit" class="btn btn-success"/>
 								</div>
-								</center>
 							</form>
 						</div>
 					</div>

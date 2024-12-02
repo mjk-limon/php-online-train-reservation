@@ -13,10 +13,13 @@
 					<label>Serial</label>
 				</th>
 				<th>
-					<label>Train Name</label>
+					<label>Bus Name</label>
 				</th>
 				<th>
-					<label>Train Number</label>
+					<label>Bus Number</label>
+				</th>
+				<th>
+					<label>Bus Type</label>
 				</th>
 				<th>
 					<label>Cost</label>
@@ -33,19 +36,20 @@
 				<th>
 					<label>Return Date &amp; Time</label>
 				</th>
-				
+				<th>
+					<label>Coach Type</label>
+				</th>
 			</tr>
 			<?php     
 			$sql ="SELECT `schedule`.`fromLoc`, `schedule`.`toLoc`,`schedule`.`scName`, `schedule`.`scNumber`, `schedule`.`scType`, `schedule`.`seatCost`, `schedule`.`cType`, ";
 			$sql.="`location`.`Name` as `loc`, `schedule`.`depDate` , `retlocation`.`Name` as `retloc`, ";
-			$sql.="`schedule`.`retDate`, `schedule`.`retTime`, `schedule`.`depTime` FROM `reset`.`schedule` ";
+			$sql.="`schedule`.`retDate`, `schedule`.`retTime`, `schedule`.`depTime` FROM `sas`.`schedule` ";
 			$sql.="INNER JOIN `location` ON `schedule`.`fromLoc` = `location`.`id` INNER JOIN `retlocation` ON `schedule`.`toLoc` = `retlocation`.`id`";
 			
 			$result=  mysqli_query($conn, $sql);
 			$sl = 1;
 			if(mysqli_num_rows($result)){
 					while ($row=mysqli_fetch_assoc($result)){
-						$sCst = explode(',', $row['seatCost']);
 			?>
                 <tr>
                 	<td>
@@ -58,26 +62,10 @@
 											<?php echo $row['scNumber'];?>
 									</td>
 									<td>
-										<table class="table">
-											<tbody>
-												<tr>
-													<td>Shovon_c</td>
-													<td><?= $sCst[0] ?>/=</td>
-												</tr>
-												<tr>
-													<td>Shovon_ac</td>
-													<td><?= $sCst[1] ?>/=</td>
-												</tr>
-												<tr>
-													<td>Cabin Berth</td>
-													<td><?= $sCst[2] ?>/=</td>
-												</tr>
-												<tr>
-													<td>Cabin Berth A/C</td>
-													<td><?= $sCst[3] ?>/=</td>
-												</tr>
-											</tbody>
-										</table>
+											<?php echo ($row['scType'] == 1) ? 'A/C': 'Non A/C';?>
+									</td>
+									<td>
+											<?php echo $row['seatCost'];?>/=
 									</td>
 									<td>
 											<?php echo $row['loc'];?>
@@ -91,7 +79,9 @@
 									<td>
 											<?= !empty($row['retDate']) ? date("F j, Y h:i(A)", strtotime($row['retDate'].$row['retTime'])) : "-"; ?>
 									</td>
-									
+									<td>
+										<?= ($row['cType']==1) ? 'Bus' : 'Train';?>
+									</td>
                 </tr>
                 <?php                                      
                         }
@@ -99,6 +89,9 @@
                 ?>
 		</table>
 	</center>
-	<br><br><br>
-<?php include"footer.php";?>
 
+
+<body>
+
+</body>
+</html>

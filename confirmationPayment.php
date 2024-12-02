@@ -14,13 +14,11 @@
 	}
 ?>
 <center>
-<button class="btn btn-info" onclick="prnt()"><i class="glyphicon glyphicon-print"></i> Print</button>
 	<h1>Confirmation Panel</h1><br><br>
 </center>
 <div class="">
 	<center><h3 style="color: black;"><?php if(isset($_GET['msg'])){echo $_GET['msg'];}?></h3></center>
 	<center style="background: #fff; padding: 1.5em" id="main">
-	<center>
 		<table class="adnmin-tabil">
 			<tr>
 				<th>
@@ -42,7 +40,7 @@
 			</tr>
 
 	<?php
-		$sql="SELECT * FROM `reset`.`payments` ORDER BY `id` DESC";
+		$sql="SELECT * FROM `sas`.`payments` ORDER BY `id` DESC";
 		$result=  mysqli_query($conn, $sql);
 		if(mysqli_num_rows($result)>0){
 			while ($row=mysqli_fetch_assoc($result)){
@@ -77,9 +75,9 @@
 			div+=document.getElementById('main').innerHTML;
 			div+="</body></html>"
 			var win=window.open("", "", "width=960,height=500");
-			win.document.write("<center><h1> Confirmation Panel </h1></center><br><br>");
+			win.document.write("<center><h1>Confirmation Panel</h1></center><br><br>");
 			win.document.write(div);
-			win.document.write("<br><br><center><p> Developed By IK Sajib </p></center>");
+			win.document.write("<br><br><center><p>Developed By IK Sajib</p></center>");
 			win.print();
 		}
 </script>

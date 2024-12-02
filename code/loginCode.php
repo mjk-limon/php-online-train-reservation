@@ -6,7 +6,7 @@ $password = $_POST["password"];
 $priv = $_POST["Make"];
 
 if($priv == '1'){
-	$sql = "SELECT `administration`.`admin_name` AS `username` FROM `reset`.`administration` WHERE `administration`.`admin_name` = '$uname' AND `administration`.`admin_pass` = '$password'";
+	$sql = "SELECT `administration`.`admin_name` AS `username` FROM `sas`.`administration` WHERE `administration`.`admin_name` = '$uname' AND `administration`.`admin_pass` = '$password'";
 	$qry = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($qry)){
 		$row=mysqli_fetch_assoc($qry);
@@ -14,14 +14,14 @@ if($priv == '1'){
 	    $_SESSION['adminname']=$activeuser;
 	    $location = "Location: ../adminpage.php";
 	    header($location);
-}else{
-		$location = "Location:../login.php?msg=Your login name or password is invalid";
+	}else{
+		$location = "Location: ../login.php?msg=Problem Try Again";
 		header($location);
-		
 	}
 }elseif ($priv == '2') {
-	$sql = $sql = "SELECT `customer`.`cus_user_name` AS `username` FROM `reset`.`customer` WHERE `customer`.`cus_user_name` = '$uname' AND `customer`.`cus_pass` = '$password'";
+	$sql = $sql = "SELECT `customer`.`cus_user_name` AS `username` FROM `sas`.`customer` WHERE `customer`.`cus_user_name` = '$uname' AND `customer`.`cus_pass` = '$password'";
 	$qry = mysqli_query($conn, $sql);
+
 	if (mysqli_num_rows($qry)){
 		$row=mysqli_fetch_assoc($qry);
 	    $activeuser = $row['username'];
@@ -29,7 +29,7 @@ if($priv == '1'){
 	    $location = "Location: ../user.php";
 	    header($location);
 	}else{
-		$location = "Location:../login.php?msg=Your login name or password is invalid";
+		$location = "Location: ../login.php?msg=Problem Try Again";
 		header($location);
 	}
 }

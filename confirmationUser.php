@@ -15,10 +15,11 @@
 			</form>
 		</div>
 	</div>
-	<table class="adnmin-tabil">
+	<table class="table table-bordered">
 		<tr>
-			<th><label>Train Name</label></th>
-			<th><label>Train Number</label></th>
+			<th><label>Bus Name</label></th>
+			<th><label>Bus Number</label></th>
+			<th><label>Bus Type</label></th>
 			<th><label>PNR Number</label></th>
 			<th width="13%"><label>Full Name</label></th>
 			<th><label>Phone Number</label></th>
@@ -34,9 +35,9 @@
     if(isset($_GET['submit'])){
 		if($_GET['srch']!=null){
 			$pnr = $_GET['srch'];
-			$sql="SELECT * FROM `reset`.`books` WHERE `user` = '$user' AND `pnr` = '$pnr' ORDER BY `id`";
-		} else $sql="SELECT * FROM `reset`.`books` WHERE `user` = '$user' ORDER BY `id`";
-	} else $sql="SELECT * FROM `reset`.`books` WHERE `user` = '$user' ORDER BY `id`";
+			$sql="SELECT * FROM `sas`.`books` WHERE `user` = '$user' AND `pnr` = '$pnr' ORDER BY `id`";
+		} else $sql="SELECT * FROM `sas`.`books` WHERE `user` = '$user' ORDER BY `id`";
+	} else $sql="SELECT * FROM `sas`.`books` WHERE `user` = '$user' ORDER BY `id`";
 	$result=  $conn->query($sql);
 	if($result->num_rows >0){
 		while ($row=mysqli_fetch_assoc($result)){
@@ -45,6 +46,7 @@
 	<tr>
 		<td><?php echo $cInfo['scName']; ?></td>
 		<td><?php echo $cInfo['scNumber']; ?></td>
+		<td><?php echo ($cInfo['scType'] == 1) ? 'A/C' : 'Non A/C';  ?></td>
 		<td><?php echo $row['pnr']; ?></td>
 		<td><?php echo $row['fname'].' '.$row['lname']; ?></td>
 		<td><?php echo $row['phone']; ?></td>
@@ -52,8 +54,8 @@
 		<td><?php echo $row['dob']; ?></td>
 		<td><?php echo $row['amount']; ?></td>
 		<td>
-			<?php echo $row['seatNames']; ?> (Up)<br>
-			 <?php if(!empty($row['seatNamesDown'])) echo $row['seatNamesDown'].' (Down)'; ?> 
+			<?php echo $row['seatNames']; ?> (U)<br>
+			<?php if(!empty($row['seatNamesDown'])) echo $row['seatNames'].' (D)'; ?> 
 		</td>
 		<td>
 		<?php if($row['accept'] == 0){ ?>
@@ -71,7 +73,7 @@
 
 	</table>
 </div>
-<br><br><br>
+
 <?php include 'footer.php';?>
 
 </body>

@@ -10,11 +10,15 @@
 	<div class="row">
 		<div class="col-md-3 col-sm-3 col-12">
 			<div class="sidebar">
-			  <h3>Dashboard</h3>
+			  <h3>Sidebar</h3>
 			  <ul>
-				<li> <a href='myWallet.php'>My Wallet</a></li>
-				</ul>
-		    </div>
+				<li> <a href="">Dashboard </a> </li>
+				<li> <a href='myWallet.php'>My Wallet </a></li>
+				<li><a href=""> profile </a></li>
+				<li><a href=""> logout </a></li>
+			  </ul>
+		
+			</div>
 		</div>
 		
 		<div class="col-md-9  col-sm-9 col-12">
@@ -34,7 +38,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table">
-				<td colspan="2"><h2 style="color: Red;">New Notifications</h2></td>
+				<td colspan="2"><h2 style="color: Red">New Notifications</h2></td>
 			<?php 
 				$user = $_SESSION['username'];
 				$sql="SELECT * FROM `notification` where `user`='$user' AND `userPriority`='0' ";
@@ -78,6 +82,22 @@
 
 </div>
 
-<?php include 'footer.php'; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<?php include 'footer.php'; ?>
 </body>
 </html>

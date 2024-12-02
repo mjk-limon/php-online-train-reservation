@@ -10,8 +10,9 @@
 		$sql .= implode("' , '",array_values($fields))."');";       
 		return $sql;
 	}
-	$fields['scName'] = $conn->real_escape_string($_POST["TrainName"]);
-	$fields['scNumber'] = $conn->real_escape_string($_POST["TrainNumber"]);
+
+	$fields['scName'] = $conn->real_escape_string($_POST["busName"]);
+	$fields['scNumber'] = $conn->real_escape_string($_POST["busNumber"]);
 	$fields['scType'] = $conn->real_escape_string($_POST["sctype"]);
 	$fields['fromLoc'] = $conn->real_escape_string($_POST["fromLoc"]);
 	$fields['toLoc'] = $conn->real_escape_string($_POST["toLoc"]);
@@ -21,15 +22,19 @@
 	(!empty($_POST["return_time"])) ? $fields['retTime'] = $conn->real_escape_string(date('H:i:s', strtotime($_POST["return_time"]))) : null;
 	
 	$fields['seat'] = $conn->real_escape_string($_POST["seat"]);
-	$fields['seatCost'] = $conn->real_escape_string(implode(",", $_POST['scost']));
+	$fields['seatCost'] = $conn->real_escape_string($_POST["scost"]);
 	$fields['cType'] = $cType = $conn->real_escape_string($_POST['ctype']);
 
 	switch($cType) {
-		case 1: $cTypeLbl = "Train"; break;
+		case 1: $cTypeLbl = "Bus"; break;
 		default: exit;
 	}
 
-	$sql="SELECT * FROM `schedule` WHERE `scName` = '$TrainNamee' AND (`depDate` = '$depDate' OR `depDate` = '$retDate')";
+$busName = $fields["scName"];
+$depDate = $fields['depDate'];
+$retDate = $fields['retDate'] ?? ''; 
+
+	$sql="SELECT * FROM `schedule` WHERE `scName` = '$busName' AND (`depDate` = '$depDate' OR `depDate` = '$retDate')";
 	$result=  mysqli_query($conn, $sql);
 	if(mysqli_num_rows($result)){
 		header("Location: ../schedule{$cTypeLbl}.php?msg={$cTypeLbl} Already Available");

@@ -1,16 +1,11 @@
 <?php
 	session_start();
 	include 'connection.php';
-	include"header.php";
+	include 'header/userheader.php';
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="./css/headercss.css">
-	<link rel="stylesheet" type="text/css" href="scss/letter.css">
-	<link rel="stylesheet" type="text/css" href="./css/headercss.css">
-
 <!Doctype html>
 <html>
-<title>Payment </title>
+<title>Search Train</title>
 <head>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <style type="text/css">
@@ -31,7 +26,7 @@
 </style>
 </head>
 
-<body >
+<body style="background-color: #34495e">
 	<div style="height: 30px"></div>
 	<center>
 		<h3>
@@ -51,9 +46,10 @@
 		<table>
 			<tr>
 				<td><p>1. BKash</p></td>
-				<td><p>Send Your Payment To 01625424245<br>
-						Now Submit Us The amount, Bkash number and transaction ID 
-				</p></td>
+				<td><p>Send Your Payment To 01722667722<br>
+						Now SMS Us The Transaction ID, PNR<br>
+						Format (Your_Name)(space)(Transaction ID)(space)(PNR) 
+						</p></td>
 			</tr>
 			<tr>
 				<td><p>2. DBBL</p></td>

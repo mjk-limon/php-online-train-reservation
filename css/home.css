@@ -35,8 +35,8 @@
 	padding: 8px!important;
 }
 .font{
- text-align:left;
- color:#0079ff;
+ text-align:center;
+ color:red;
  font-family: Algerian;
  font-size: 25px;
  font-weight:bold;
@@ -71,7 +71,7 @@
     font-weight: 600;
 }
 .ftext1{
-	color: #fff;
+	color: #000;
     text-align: center;
     font-size: 25px;
     text-transform: uppercase;
@@ -90,17 +90,18 @@
 	width:200px;
 }
 .style{
-	color:#fff;
+	color:red;
 	font-size:18px;
-	font-family:Arial Black;
+	font-family:Engravers MT;
 	font-weight:bold;
 	margin:0px;
 	padding:0px;
 }
 
 .menu{
+	    margin-bottom: 10px;
     padding: 10px 0;
-    background-color:#0079ff;
+    background-color:#0ef5e478;
     width: 100%;
     text-align: center;
 }
@@ -114,22 +115,14 @@
 }
 .menu ul li a{
     background-color:#fff;
-	color:#0079ff;
-	padding: 5px 20px;
+	color:#1612bf;
+	padding: 5px 5px;
 	display: block;
 	text-decoration:none;
-	border:1px solid #fff;
-	border-radius: 6px;
-}
-.tex-js{
-	
-	text-align:justify;
-	width:100%
 }
 .menu ul li a:hover{
-	border: 1px solid #fff;
-    color: #ffffff;
-    background-color: #0963c7;
+	color:#10ea6f;
+	background-color:#000;
 }
 .dropdown{
 	position: absolute!important;
@@ -139,20 +132,12 @@
     left: auto;
 	padding:0px;
 	display:none;
-    
 }
 .dropdown li {
 	width:100%;
 }
 .dropdown li a{
-	border: 1px solid #5eff33;
-	background-color: #0963c7!important;
-	color:#fff!important;
-}
-.dropdown li a:hover{
-	border: 1px solid #0963c7!important;
-	background-color: #fff!important;
-	color:#0963c7!important;
+	border-bottom: 1px solid #5eff33;
 }
 
 
@@ -399,7 +384,7 @@ margin-top:30px;
 	background-color: #000;
     text-align: center;
     padding: 15px 0;
-    margin-top:38px;
+    margin-top:20px;
 }
 .footer h3{
 	color:#fff;
@@ -439,7 +424,6 @@ margin-top:30px;
     font-weight: 600;
     color: #fff;
     padding: 6px;
-	
 }
 .reg-btn a{
 	margin-left:10px;
@@ -546,7 +530,7 @@ margin-top:30px;
 	min-height: 370px;
   text-align: center;
     width: 50%;
-    background-color: #080808a8;
+    background-color: #8dfaf273;
     margin: auto;
     border: 1px solid #ddd;
     padding: 30px;   
@@ -572,8 +556,8 @@ margin-top:30px;
 	display:inline-block;
 }
 .all-infut-login-btn input {
-    border: 1px solid #0079ff;
-    background-color: #0079ff!important;
+    border: 1px solid #15ada2;
+    background-color: #15ada2!important;
     border-radius: 10px;
     width: 36%;
     font-size: 16px;
@@ -607,52 +591,4 @@ font-family:Chaparral Pro Light;
 color:red;
 font-family:Chaparral Pro Light;
 	
-}
-.top-links {
-    color: #204699;
-    font-size: 13px;
-    line-height: 40px;
-    font-weight: 400;
-    padding-left: 11px;
-	margin-top:28px;
-	float:right;
-	}
-	
-.top-links li a{ color: #fff;} 
-.top-links li{
-    border-radius: 15px;
-    float: left;
-    height: 30px;
-    width: 30px;
-    background-color: #0079ff;
-    border:1px solid #0079ff;
-    text-align: center;
-    line-height: 30px;
-    list-style-type: none;
-    margin: 0px 2px;
-    color: #fff;
-}
-.top-links li:hover {
-    background-color: #fff;
-}
-.top-links li:hover a{
-    color: #0079ff;
-}
-.ballence{
-	font-size: 20px;
-    margin-top: 20px;
-    padding: 10px 20px;
-    float: left;
-    background-color: #d0e1e905;
-}
-.content{	
-	padding: 50px 0px;
-    background-attachment: fixed;
-    background-image: url(../image/home-image1.png);
-    background-size: cover;
-}
-.releway-font{
-	text-align: left;
-    color: #fff;
-    padding: 70px 0px;
 }
