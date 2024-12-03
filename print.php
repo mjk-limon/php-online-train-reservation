@@ -154,7 +154,7 @@ $ob1 = new BasicDB;
 				var win=window.open("", "", "width=960,height=500");
 				win.document.write("<center><h1>Customer Ticket</h1></center><br><br>");
 				win.document.write(div);
-				win.document.write("<br><br><center><p>&copy All Rights Reserved ByIk Sajib</p></center>");
+				win.document.write("<br><br><center><p>&copy All Rights Reserved.</p></center>");
 				win.print();
 			}
 	</script>

@@ -1,27 +1,32 @@
-<?php 
-	include 'connection.php';
-	$pnr = isset($_GET['pnr']) ? $conn->real_escape_string($_GET['pnr']) : null;
-	
-	$sql       = "SELECT * FROM `books` WHERE `pnr` = '$pnr'";
-	$row       = $conn->query($sql)->fetch_assoc();
-	$qty       = $row['sit'];
-	$sccnumber = $row['scNumber'];
+<?php
 
+include 'connection.php';
+$pnr = isset($_GET['pnr']) ? $conn->real_escape_string($_GET['pnr']) : null;
 
-	$sql = "SELECT * FROM `schedule` WHERE `scNumber` = '$sccnumber' LIMIT 1";
-	$row = $conn->query($sql)->fetch_assoc();
+$sql       = "SELECT * FROM `books` WHERE `pnr` = '$pnr'";
+$row       = $conn->query($sql)->fetch_assoc();
+$qty       = $row['sit'];
+$accept    = $row['accept'];
+$sccnumber = $row['scNumber'];
 
-	$totalsit = $row['seat'];
-	$totalsit = $totalsit + $qty;
+$sql = "SELECT * FROM `schedule` WHERE `scNumber` = '$sccnumber' LIMIT 1";
+$row = $conn->query($sql)->fetch_assoc();
 
-	$sql    = "UPDATE `schedule` SET `seat` = '$totalsit' WHERE `scNumber` = '$sccnumber'";
-	$result = mysqli_query($conn, $sql);
+$totalsit = $row['seat'];
+$totalsit = $totalsit + $qty;
 
-	$sql= "DELETE FROM `books` WHERE `pnr` = '$pnr';";
-	
-	$result=  mysqli_query($conn, $sql);
-	if($result){
-		$location = "Location: confirmationAdmin.php?msg=Ticket Reservation Canceled For PNR =".$pnr;
-		header($location);
-	} else echo mysql_error();
-?>
+$sql = "UPDATE `schedule` SET `seat` = '$totalsit' WHERE `scNumber` = '$sccnumber'";
+$result = mysqli_query($conn, $sql);
+
+$sql = "DELETE FROM `books` WHERE `pnr` = '$pnr';";
+$result =  mysqli_query($conn, $sql);
+
+if ($accept) {
+	$sql = "DELETE FROM `books` WHERE `pnr` = '$pnr';";
+	$result =  mysqli_query($conn, $sql);
+}
+
+if ($result) {
+	$location = "Location: confirmationAdmin.php?msg=Ticket Reservation Canceled For PNR =" . $pnr;
+	header($location);
+}

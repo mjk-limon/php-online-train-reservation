@@ -105,7 +105,6 @@
 			var win=window.open("", "", "width=960,height=500");
 			win.document.write("<center><h1>Confirmation Panel</h1></center><br><br>");
 			win.document.write(div);
-			win.document.write("<br><br><center><p>Developed By IK Sajib</p></center>");
 			win.print();
 		}
 </script>
