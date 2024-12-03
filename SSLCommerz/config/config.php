@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('PROJECT_PATH')) {
-    define('PROJECT_PATH', 'https://localhost/Completed/Student-Project/ticket-booking'); // replace this value with your project path
-}
-
 if (!defined('IS_SANDBOX')) {
     define('IS_SANDBOX', true); // 'true' for sandbox, 'false' for live
 }

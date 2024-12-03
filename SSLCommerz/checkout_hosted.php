@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 # This is a sample page to understand how to connect payment gateway
-
+require_once(__DIR__ . "/../connection.php");
 require_once(__DIR__ . "/lib/SslCommerzNotification.php");
 
 // include("db_connection.php");
