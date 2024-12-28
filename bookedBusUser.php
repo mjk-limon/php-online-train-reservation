@@ -74,8 +74,17 @@ if (mysqli_num_rows($result) > 0) {
 						<input type="hidden" name="customer_mobile" value="<?php echo $phone ?>" required />
 						<input type="hidden" name="customer_email" value="<?php echo $email ?>" required />
 						<input type="hidden" value="<?php echo $amount ?>" name="amount" required />
-						
-						<input type="submit" class="btn btn-success" value="Pay Again" />
+
+						<input type="submit" value="Pay online" class="btn btn-primary" />
+					</form>
+					<form action="walletPayment.php" method="POST" id="walletForm">
+						<input type="hidden" name="tran_id" value="<?php echo $pnr ?>" required />
+						<input type="hidden" name="customer_username" value="<?php echo $user ?>" required />
+						<input type="hidden" name="customer_name" value="<?php echo $fname . ' ' . $lname ?>" required />
+						<input type="hidden" name="customer_mobile" value="<?php echo $phone ?>" required />
+						<input type="hidden" name="customer_email" value="<?php echo $email ?>" required />
+						<input type="hidden" value="<?php echo $amount ?>" name="amount" required />
+						<input type="submit" value="Pay from Wallet" class="btn btn-secondary" />
 					</form>
 				<?php endif; ?>
 			</td>

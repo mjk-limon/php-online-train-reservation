@@ -4,18 +4,31 @@
 	include 'header.php';
 ?>
 <?php
-	//echo "<pre>"; print_r($_SESSION); echo "</pre>"; exit;
-	if(isset($_POST['update-balance'])) {
-		$user_id = $_SESSION['username'];
-		$amount = $con->real_escape_string($_POST['amount']);
-		$accnumber = $con->real_escape_string($_POST['accnumber']);
-		$trxnid = $con->real_escape_string($_POST['trxnid']);
-		
-		$sql = "INSERT INTO payments (user_id, amount, acnumber, trxn_id, status) ";
-		$sql.= "VALUES ('{$user_id}', '{$amount}', '{$accnumber}', '{$trxnid}', '0')";
-		if($con->query($sql)) echo '<script>alert("Payment is under review !")</script>';
-		else echo '<script>alert("'.$con->error.'")</script>';
-	}
+
+$user_id = $_SESSION['username'];
+$sql = "SELECT * FROM `balance` WHERE username = '$user_id'";
+
+$result = $con->query($sql);
+$balance = $result->fetch_assoc();
+
+if (empty($balance)) {
+	$sql = "INSERT INTO `balance` (username, userid, balance) VALUES ('$user_id', 0, 0)";
+	$result = $con->query($sql);
+	$totalBalance = 0;
+} else {
+	$totalBalance = $balance['balance'];
+}
+
+if(isset($_POST['update-balance'])) {
+	$amount = $con->real_escape_string($_POST['amount']);
+	$accnumber = $con->real_escape_string($_POST['accnumber']);
+	$trxnid = $con->real_escape_string($_POST['trxnid']);
+	
+	$sql = "INSERT INTO payments (user_id, amount, acnumber, trxn_id, status) ";
+	$sql.= "VALUES ('{$user_id}', '{$amount}', '{$accnumber}', '{$trxnid}', '0')";
+	if($con->query($sql)) echo '<script>alert("Payment is under review !")</script>';
+	else echo '<script>alert("'.$con->error.'")</script>';
+}
 ?>
 <div class="container">
 	<div class="row">
@@ -36,7 +49,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="adnmin-firde-tabil">
-						<h2 class="text-center">Your available balance is: <span class="text-success">BDT80</span></h2>
+						<h2 class="text-center">Your available balance is: <span class="text-success"><?php echo $totalBalance ?></span></h2>
 						<div class="well text-left">
 							<h4>Update Balance</h4>
 							<form id="" action="" method="post">

@@ -6,7 +6,9 @@ $pnr = isset($_GET['pnr']) ? $conn->real_escape_string($_GET['pnr']) : null;
 $sql       = "SELECT * FROM `books` WHERE `pnr` = '$pnr'";
 $row       = $conn->query($sql)->fetch_assoc();
 $qty       = $row['sit'];
+$user      = $row['user'];
 $accept    = $row['accept'];
+$amount    = $row['amount'];
 $sccnumber = $row['scNumber'];
 
 $sql = "SELECT * FROM `schedule` WHERE `scNumber` = '$sccnumber' LIMIT 1";
@@ -22,11 +24,10 @@ $sql = "DELETE FROM `books` WHERE `pnr` = '$pnr';";
 $result =  mysqli_query($conn, $sql);
 
 if ($accept) {
-	$sql = "DELETE FROM `books` WHERE `pnr` = '$pnr';";
+	$sql = "UPDATE `balance` SET `balance` = `balance` + '$amount' WHERE `username` = '$user';";
 	$result =  mysqli_query($conn, $sql);
 }
 
-if ($result) {
-	$location = "Location: confirmationAdmin.php?msg=Ticket Reservation Canceled For PNR =" . $pnr;
-	header($location);
-}
+
+$location = "Location: confirmationAdmin.php?msg=Ticket Reservation Canceled For PNR =" . $pnr;
+header($location);

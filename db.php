@@ -1,12 +1,12 @@
 <?php
 
 if (!defined('PROJECT_PATH')) {
-    define('PROJECT_PATH', 'http://localhost/my-project/php-online-train-reservation');
+    define('PROJECT_PATH', 'https://localhost/Completed/Student-Project/ticket-booking/');
 }
 
 $servername = "localhost";
 $username = "root";
-$password = "admin";
+$password = "adminlimon";
 $db = "sas";
 
 // Create connection
